@@ -198,7 +198,7 @@ export default function Mascot({ stats: externalStats }: { stats?: MascotStats }
         </div>
         <div className="mascot-float-avatar">
           <img
-            src="/assets/xiaozhao.jpg"
+            src={import.meta.env.BASE_URL + 'assets/xiaozhao.jpg'}
             alt="小招AI"
             width={40}
             height={40}

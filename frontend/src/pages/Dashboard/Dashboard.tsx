@@ -124,7 +124,7 @@ export default function Dashboard() {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3, flexShrink: 0 }}>
             <div className="mascot-avatar" style={{ width: 48, height: 48, overflow: 'hidden' }}>
               <img
-                src="/assets/xiaozhao.jpg"
+                src={import.meta.env.BASE_URL + 'assets/xiaozhao.jpg'}
                 alt="小招"
                 width={48}
                 height={48}

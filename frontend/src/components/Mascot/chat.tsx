@@ -217,7 +217,7 @@ export default function MascotChat({ open, onClose }: MascotChatProps) {
             }}>
               {msg.role === 'user'
                 ? <UserOutlined style={{ fontSize: 12 }} />
-                : <img src="/assets/xiaozhao.jpg" alt="小招" style={{ width: 22, height: 22, borderRadius: '50%', objectFit: 'cover' }} />}
+                : <img src={import.meta.env.BASE_URL + 'assets/xiaozhao.jpg'} alt="小招" style={{ width: 22, height: 22, borderRadius: '50%', objectFit: 'cover' }} />}
             </div>
             <div style={{
               maxWidth: '75%',
