@@ -35,7 +35,7 @@ function PageLoading() {
 
 function App() {
   return (
-    <BrowserRouter basename="/bidding-server">
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
       <Routes>
         <Route path="/" element={<LayoutComponent />}>
           <Route
