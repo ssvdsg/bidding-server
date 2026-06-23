@@ -31,6 +31,8 @@ jobs:
           cd frontend
           npm ci
           npm run build
+          # SPA fallback: copy index.html to 404.html for client-side routing
+          cp ../dist/index.html ../dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

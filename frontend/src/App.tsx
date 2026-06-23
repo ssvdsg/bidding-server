@@ -35,7 +35,7 @@ function PageLoading() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/bidding-server">
       <Routes>
         <Route path="/" element={<LayoutComponent />}>
           <Route
