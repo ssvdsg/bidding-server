@@ -5,6 +5,8 @@
 <h1 align="center">Bidding Server</h1>
 <p align="center">
   招标信息智能分析系统 — AI 驱动的投标决策助手
+  <br/>
+  <a href="https://ssvdsg.github.io/bidding-server/"><strong>🌐 在线演示</strong></a>
 </p>
 
 <p align="center">
