@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b9d"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <!-- 盾牌主体 (商务感) -->
+  <path fill="url(#shieldGrad)" d="M24 2L6 12v12c0 11.05 7.16 21.26 18 24 10.84-2.74 18-12.95 18-24V12L24 2z"/>
+  <!-- 盾牌边框光泽 -->
+  <path fill="none" stroke="#e8b84b" stroke-width="1.2" opacity="0.6" d="M24 4.5L8 13.5v10.5c0 9.85 6.3 18.96 16 21.5 9.7-2.54 16-11.65 16-21.5V13.5L24 4.5z"/>
+  <!-- 内部圆 (商务简约) -->
+  <circle cx="24" cy="22" r="8" fill="none" stroke="url(#pinkGrad)" stroke-width="1.5" opacity="0.6"/>
+  <!-- 金色星星 (二次元 sparkle) -->
+  <path fill="url(#starGrad)" d="M24 13l1.82 5.6h5.9l-4.77 3.46 1.82 5.6L24 24.2l-4.77 3.46 1.82-5.6-4.77-3.46h5.9L24 13z"/>
+  <!-- 右侧小粉色圆点装饰 -->
+  <circle cx="37" cy="14" r="2" fill="url(#pinkGrad)" opacity="0.8"/>
+  <!-- 左侧小金色圆点装饰 -->
+  <circle cx="11" cy="14" r="1.5" fill="#fbbf24" opacity="0.6"/>
+  <!-- 底部小闪光 ✦ -->
+  <path fill="#ff6b9d" opacity="0.7" d="M27 38l.4 1.23h1.3l-1.05.76.4 1.23-1.05-.76-1.05.76.4-1.23-1.05-.76h1.3L27 38z"/>
+</svg>

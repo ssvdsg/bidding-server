@@ -1,0 +1,778 @@
+/* ===== ✦ 商务二次元风格 — 极致微霓虹强化版 ✦ ===== */
+
+/* ── 赛博霓虹色板 ── */
+:root {
+  --anime-primary: #00f0ff;      /* 赛博初音蓝：核心高亮、主按钮 */
+  --anime-purple:  #bd93f9;      /* 魔法少女紫：AI相关、特殊状态 */
+  --anime-pink:    #ff79c6;      /* 活力痛包粉：告警、加星、数字飙升 */
+  --anime-bg-dark: #0d0e15;      /* 极客深夜底色 */
+  --border-line:   rgba(26, 26, 46, 0.85);  /* 极细像素级包边 */
+}
+
+/* ── 樱花飘落动画 ── */
+@keyframes sakura-fall {
+  0%   { transform: translateY(-20px) rotate(0deg) scale(1); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.3; }
+  100% { transform: translateY(100vh) rotate(720deg) scale(0.5); opacity: 0; }
+}
+
+@keyframes sakura-sway {
+  0%, 100% { margin-left: 0; }
+  50% { margin-left: 30px; }
+}
+
+.sakura-petal {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50% 0 50% 0;
+  background: linear-gradient(135deg, #ffb7c5, #ff6b9d);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  animation: sakura-fall 8s linear infinite, sakura-sway 4s ease-in-out infinite;
+}
+.sakura-petal:nth-child(1)  { left: 5%;  animation-delay: 0s;   width: 10px; height: 10px; }
+.sakura-petal:nth-child(2)  { left: 15%; animation-delay: 1.2s; width: 14px; height: 14px; }
+.sakura-petal:nth-child(3)  { left: 25%; animation-delay: 2.5s; width: 8px;  height: 8px;  }
+.sakura-petal:nth-child(4)  { left: 40%; animation-delay: 0.8s; width: 12px; height: 12px; }
+.sakura-petal:nth-child(5)  { left: 55%; animation-delay: 3.2s; width: 10px; height: 10px; }
+.sakura-petal:nth-child(6)  { left: 70%; animation-delay: 1.8s; width: 13px; height: 13px; }
+.sakura-petal:nth-child(7)  { left: 82%; animation-delay: 0.3s; width: 9px;  height: 9px;  }
+.sakura-petal:nth-child(8)  { left: 92%; animation-delay: 2.0s; width: 11px; height: 11px; }
+
+/* ── 星星闪烁动画 ── */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes float-up {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── 萌系加载动画 ── */
+.cute-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 0;
+}
+.cute-loading-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: bounce-dot 1.4s ease-in-out infinite;
+}
+.cute-loading-dot:nth-child(1) { background: #1a1a2e; animation-delay: 0s; }
+.cute-loading-dot:nth-child(2) { background: #fbbf24; animation-delay: 0.2s; }
+.cute-loading-dot:nth-child(3) { background: #ff6b9d; animation-delay: 0.4s; }
+.cute-loading-dot:nth-child(4) { background: #6d28d9; animation-delay: 0.6s; }
+.cute-loading-dot:nth-child(5) { background: #fbbf24; animation-delay: 0.8s; }
+
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-16px); }
+}
+
+/* ── 淡入动画 ── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fade-in-up 0.5s ease-out; }
+
+/* ── 欢迎角色区 — 二次元商务主角「小招」 ── */
+.mascot-section {
+  position: relative;
+  border-radius: 16px;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 45%, #0f3460 100%);
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+.mascot-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 180px 120px at 15% 50%, rgba(255, 107, 157, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 140px 100px at 70% 60%, rgba(251, 191, 36, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 100px at 90% 20%, rgba(109, 40, 217, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+.mascot-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fbbf24 20%, #ff6b9d 50%, #6d28d9 80%, transparent);
+  z-index: 1;
+}
+
+/* 角色头像圈 */
+.mascot-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24, #ff6b9d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  animation: float-up 3s ease-in-out infinite;
+}
+.mascot-avatar img {
+  mix-blend-mode: darken;
+}
+.mascot-avatar::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 107, 157, 0.4);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.mascot-name-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 1px 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 3px;
+}
+
+.mascot-speech {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px 12px 12px 4px;
+  padding: 8px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  font-family: 'ZCOOL KuaiLe', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ── 奖章风格数据卡 ── */
+.medal-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  height: 100%;
+}
+.medal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1) !important;
+}
+
+.medal-card-top {
+  position: relative;
+  padding: 20px 20px 12px;
+  text-align: center;
+}
+.medal-card-top .medal-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 6px;
+}
+.medal-card-top .medal-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.5px;
+}
+.medal-card-bottom {
+  padding: 4px 20px 18px;
+  text-align: center;
+}
+.medal-card-bottom .medal-value {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.medal-card.card-navy .medal-card-top { background: linear-gradient(135deg, #1a1a2e, #2d2d5e); }
+.medal-card.card-navy .medal-card-bottom { background: #f8f6ff; }
+.medal-card.card-navy .medal-value { color: #1a1a2e; }
+
+.medal-card.card-green .medal-card-top { background: linear-gradient(135deg, #059669, #10b981); }
+.medal-card.card-green .medal-card-bottom { background: #f0fdf4; }
+.medal-card.card-green .medal-value { color: #059669; }
+
+.medal-card.card-gold .medal-card-top { background: linear-gradient(135deg, #d97706, #f59e0b); }
+.medal-card.card-gold .medal-card-bottom { background: #fffbeb; }
+.medal-card.card-gold .medal-value { color: #d97706; }
+
+.medal-card.card-purple .medal-card-top { background: linear-gradient(135deg, #6d28d9, #8b5cf6); }
+.medal-card.card-purple .medal-card-bottom { background: #f5f3ff; }
+.medal-card.card-purple .medal-value { color: #6d28d9; }
+
+.medal-card::before {
+  content: '✦';
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 11px;
+  z-index: 2;
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+.medal-card.card-navy::before { color: rgba(251, 191, 36, 0.5); }
+.medal-card.card-green::before  { color: rgba(255, 255, 255, 0.4); }
+.medal-card.card-gold::before   { color: rgba(255, 255, 255, 0.5); }
+.medal-card.card-purple::before { color: rgba(255, 255, 255, 0.4); }
+
+/* ── 极致毛玻璃果冻卡片 — 二次元漫画勾线质感 ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  border: 1px solid var(--border-line) !important;
+  border-radius: 10px !important;
+  box-shadow: 3px 3px 0px 0px var(--border-line),
+              0px 4px 20px rgba(0, 240, 255, 0.03) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.glass-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px 0px var(--border-line),
+              0px 8px 30px rgba(189, 147, 249, 0.12) !important;
+  border-color: #1a1a2e !important;
+}
+.glass-card .ant-card-head {
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-weight: 600;
+}
+
+/* ── 赛博霓虹商务卡片 — 极细深色边框 + 二次元硬朗阴影 ── */
+.anime-business-card {
+  border: 1px solid #1a1a2e !important;
+  box-shadow: 2px 2px 0px 0px #1a1a2e, 0px 0px 8px rgba(24, 144, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.anime-business-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px #1a1a2e, 0px 0px 12px rgba(24, 144, 255, 0.25) !important;
+}
+
+/* ── 像素按压按钮 — hover 微弹跳 + 斜切光扫 ── */
+.btn-pixel-press {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-pixel-press:hover {
+  transform: translate(1px, 1px);
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,0.1) !important;
+}
+.btn-pixel-press:active {
+  transform: translate(2px, 2px);
+}
+/* 光扫遮罩 */
+.btn-pixel-press::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -100%;
+  width: 60%; height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.3) 50%,
+    transparent 70%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+.btn-pixel-press:hover::after {
+  left: 120%;
+}
+
+/* ── SSR 级流光按钮 — 45度斜切光扫 + 深色硬核底 + 霓虹文字 ── */
+.anime-btn-glow {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #1a1a2e !important;
+  background: #1a1a2e !important;
+  color: var(--anime-primary) !important;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.anime-btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-45deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 1;
+}
+.anime-btn-glow:hover::before {
+  left: 150%;
+  transition: left 0.6s ease-in-out;
+}
+.anime-btn-glow:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+}
+.anime-btn-glow:active {
+  transform: translate(2px, 2px);
+}
+
+/* ── 机甲仪表盘 Tooltip — 暗色半透明弹窗 ── */
+.chart-tooltip-dark {
+  background: rgba(15, 15, 30, 0.92) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(24, 144, 255, 0.4) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(24, 144, 255, 0.1) !important;
+  padding: 8px 14px !important;
+}
+.chart-tooltip-dark .recharts-tooltip-label {
+  color: #a78bfa !important;
+  font-family: 'ZCOOL KuaiLe', 'PingFang SC', sans-serif;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.chart-tooltip-dark .recharts-tooltip-item {
+  color: #00ffcc !important;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ── 荧光数字 ── */
+.neon-glow-text {
+  color: var(--anime-pink);
+  text-shadow: 0 0 4px rgba(255, 121, 196, 0.4), 0 0 12px rgba(255, 121, 196, 0.2);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.5px;
+}
+
+/* ── 关键词小号霓虹标签 ── */
+.neon-tag-sub {
+  background: rgba(189, 147, 249, 0.08) !important;
+  border: 1px solid rgba(189, 147, 249, 0.25) !important;
+  color: var(--anime-purple) !important;
+  border-radius: 12px !important;
+  font-size: 11px !important;
+  padding: 0 10px !important;
+  line-height: 22px !important;
+  transition: all 0.2s ease;
+}
+.neon-tag-sub:hover {
+  background: rgba(189, 147, 249, 0.18) !important;
+  border-color: rgba(189, 147, 249, 0.5) !important;
+}
+
+/* ── 防御性文本换行 ── */
+.text-break-defend {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* ── 霓虹流动边框 — 核心卡片赛博跑马灯 ── */
+.neon-flow-card {
+  position: relative;
+  border: none !important;
+  background: rgba(20, 20, 35, 0.8) !important;
+  color: #fff;
+  z-index: 0;
+  overflow: hidden;
+}
+.neon-flow-card::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(
+    90deg,
+    var(--anime-primary),
+    var(--anime-purple),
+    var(--anime-pink),
+    var(--anime-primary)
+  );
+  background-size: 400% 400%;
+  z-index: -2;
+  border-radius: 10px;
+  animation: neon-border-flow 8s linear infinite;
+}
+.neon-flow-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: rgba(20, 20, 35, 0.85);
+  border-radius: 9px;
+  z-index: -1;
+}
+@keyframes neon-border-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── 状态呼吸灯 ── */
+.status-dot-breathing {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  animation: status-breathe 2s ease-in-out infinite;
+}
+.status-dot-breathing.dot-active {
+  background: #00f0ff;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.5);
+}
+.status-dot-breathing.dot-closed {
+  background: #ff79c6;
+  box-shadow: 0 0 6px rgba(255, 121, 198, 0.4);
+}
+@keyframes status-breathe {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50%      { opacity: 1;   transform: scale(1.2); }
+}
+
+/* ── 霓虹左侧竖线信息块 — 替代嵌套卡片的分割方式 ── */
+.info-block-neon {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  padding: 16px;
+}
+.info-block-neon::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 12px; bottom: 12px;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(180deg, var(--anime-primary), var(--anime-purple));
+  opacity: 0.6;
+}
+
+/* ── 二次元像素网格 — CartesianGrid 细密风格 ── */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(26, 26, 46, 0.06);
+  stroke-dasharray: 2 4;
+}
+
+/* ── 小装饰星星 ── */
+.deco-star {
+  display: inline-block;
+  animation: twinkle 2s ease-in-out infinite;
+  color: #fbbf24;
+}
+
+/* ── 数据标签 — 渐变胶囊精致风 ── */
+.cute-tag {
+  border-radius: 20px !important;
+  padding: 2px 14px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease;
+}
+.cute-tag:hover {
+  transform: scale(1.04);
+}
+
+/* success → 翠绿渐变 */
+.ant-tag-success.cute-tag,
+.cute-tag.cute-tag--success {
+  background: linear-gradient(135deg, #f6ffed 0%, #e6ffe6 100%) !important;
+  color: #389e0d !important;
+  border: 1px solid #b7eb8f !important;
+}
+
+/* error → 暖粉渐变 */
+.ant-tag-error.cute-tag,
+.cute-tag.cute-tag--error {
+  background: linear-gradient(135deg, #fff2f0 0%, #ffe7e5 100%) !important;
+  color: #cf1322 !important;
+  border: 1px solid #ffccc7 !important;
+}
+
+/* warning → 暖金渐变 */
+.ant-tag-warning.cute-tag,
+.cute-tag.cute-tag--warning {
+  background: linear-gradient(135deg, #fffbe6 0%, #fff7cc 100%) !important;
+  color: #d48806 !important;
+  border: 1px solid #ffd666 !important;
+}
+
+/* processing → 柔紫渐变 */
+.ant-tag-processing.cute-tag,
+.cute-tag.cute-tag--processing {
+  background: linear-gradient(135deg, #f9f0ff 0%, #f3e8ff 100%) !important;
+  color: #7b2d8e !important;
+  border: 1px solid #d3adf7 !important;
+}
+
+/* ── 滚动条 ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d4c8b8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #b8a898; }
+
+/* ── 全局卡片动效 ── */
+.ant-card {
+  transition: transform 0.25s ease, box-shadow 0.3s ease !important;
+}
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07) !important;
+}
+
+/* ── 背景动态微光 ── */
+@keyframes bg-shimmer {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+.ant-layout-content {
+  position: relative;
+}
+.ant-layout-content::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(251, 191, 36, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(109, 40, 217, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(255, 107, 157, 0.02) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+.ant-layout-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ════════════════════════════════════════════════════
+   页面级实用类
+   ════════════════════════════════════════════════════ */
+
+.page-container {
+  padding-top: 24px;
+  animation: fade-in-up 0.4s ease-out;
+  min-height: 100%;
+}
+
+.page-container .ant-card-bordered {
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+}
+.page-container .ant-card:not(.ant-card-size-small) {
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.page-title-star {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.page-title-star::before {
+  content: '✦';
+  display: inline-block;
+  animation: twinkle 2.5s ease-in-out infinite;
+  color: #fbbf24;
+  font-size: 0.75em;
+}
+
+.page-container .ant-card-head-title {
+  font-weight: 600 !important;
+}
+
+.page-container.page-container--flush-top { padding-top: 0; }
+
+.page-container .ant-table-wrapper .ant-table-thead > tr > th {
+  background: rgba(245, 240, 235, 0.6) !important;
+  font-weight: 600 !important;
+  font-size: 13px;
+}
+.page-container .ant-table-wrapper .ant-table-tbody > tr:hover > td {
+  background: rgba(109, 40, 217, 0.03) !important;
+}
+.page-container .ant-table-wrapper .ant-table-thead > tr > th::before {
+  display: none !important;
+}
+
+.page-container .ant-input-search .ant-input {
+  border-radius: 8px !important;
+}
+.page-container .ant-input-search .ant-input-search-button {
+  border-radius: 0 8px 8px 0 !important;
+}
+
+.page-container .ant-form-item {
+  margin-bottom: 16px !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   小招AI 悬浮桌宠
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes mascot-glow-pulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.15); }
+}
+
+@keyframes bubble-pop-in {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes bubble-pop-out {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-8px) scale(0.9); }
+}
+
+.mascot-float {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: mascot-float 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(26, 26, 46, 0.15));
+  transition: filter 0.3s;
+}
+.mascot-float:hover {
+  filter: drop-shadow(0 6px 20px rgba(251, 191, 36, 0.3));
+}
+.mascot-float:active {
+  animation: none;
+}
+
+.mascot-float-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24, #ff6b9d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6), 0 3px 10px rgba(0,0,0,0.1);
+  /* 让 JPEG 白色背景在渐变底上变透明 */
+}
+.mascot-float-avatar img {
+  mix-blend-mode: darken;
+}
+.mascot-float:hover .mascot-float-avatar {
+  transform: scale(1.08);
+}
+
+.mascot-float-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.25), transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: mascot-glow-pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.mascot-float-tag {
+  font-size: 11px;
+  color: #1a1a2e;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,245,235,0.95));
+  backdrop-filter: blur(6px);
+  padding: 2px 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(251,191,36,0.2);
+  letter-spacing: 1.5px;
+  z-index: 2;
+  font-family: 'ZCOOL KuaiLe', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 400;
+}
+
+.mascot-bubble {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 12px 12px 12px 4px;
+  padding: 8px 14px;
+  min-width: 160px;
+  max-width: 240px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px) scale(0.9);
+  transition: none;
+  font-family: 'ZCOOL KuaiLe', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #333;
+}
+.mascot-bubble.visible {
+  animation: bubble-pop-in 0.3s ease-out forwards;
+}
+.mascot-bubble:not(.visible) {
+  animation: bubble-pop-out 0.25s ease-in forwards;
+}
+
+.mascot-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border-right: 1px solid rgba(251, 191, 36, 0.3);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 0 0 2px 0;
+}
+
+

@@ -1,0 +1,41 @@
+# 环境变量（包含密钥和密码）
+.env
+
+# 编译后的二进制文件
+bidding-server
+
+# 前端构建产物
+dist/
+frontend/dist/
+
+# 依赖
+node_modules/
+frontend/node_modules/
+
+# 日志
+*.log
+server.log
+
+# 打包文件
+*.tar.gz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 临时文件
+tmp/
+temp/
+
+# 凭据缓存
+storage/r2/
+
+# 内部工具缓存
+.reasonix/
