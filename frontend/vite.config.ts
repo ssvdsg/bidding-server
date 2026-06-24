@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/bidding-server/',
+  base: process.env.GITHUB_PAGES === 'true' ? '/bidding-server/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
